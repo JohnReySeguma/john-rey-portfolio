@@ -6,7 +6,7 @@ const userData = {
   title: "About Me",
   img: "/me.png",
   description:
-    "Hi, I’m Rey! 👋 I’m an aspiring IT professional who recently graduated from Notre Dame of Marbel University with a solid foundation in programming, database management, and system analysis. 💻 I’m passionate about using tech to solve real-world problems and make systems more efficient. ⚙️ I enjoy diving into code, exploring new tools, and keeping up with the latest tech trends. 🚀 When I’m not busy with tech stuff, I’m probably learning something new or geeking out over cool innovations. Let’s connect and build something awesome! 👨‍💻✨",
+    "Hi, I’m Rey! 👋 I’m a Junior Software Developer at Smartech Solution Philippines Inc. 🚀 I graduated from Notre Dame of Marbel University with a strong foundation in programming, database management, and system analysis. 💻 I’m passionate about building efficient systems, solving real-world problems through technology, and continuously improving my skills. ⚙️ I love exploring new tools, diving into code, and staying updated with the latest tech trends. 👨‍💻 Outside of work, you’ll often find me learning new things or geeking out over innovative technologies. Let’s connect and create something awesome together! ✨",
 };
 
 //personal information end

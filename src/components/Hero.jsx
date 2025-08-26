@@ -32,7 +32,7 @@ const Hero = (props) => {
         <h3>I am</h3>
         <Typewriter
           options={{
-            strings: ["An Aspiring Software Developer"],
+            strings: ["A Junior Software Developer", "A Robotics Enthusiast", "A Tech Innovator"],
             autoStart: true,
             loop: true,
           }}
