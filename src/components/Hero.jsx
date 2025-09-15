@@ -29,10 +29,10 @@ const Hero = (props) => {
       <Heading firstWord="Who" secondWord="AmI?" />
 
       <div className="hero-typewriter">
-        <h3>I am</h3>
+        <h3>I Am A</h3>
         <Typewriter
           options={{
-            strings: ["A Junior Software Developer", "A Robotics Enthusiast", "A Tech Innovator"],
+            strings: ["Junior Software Developer", "Robotics Enthusiast", "Tech Innovator"],
             autoStart: true,
             loop: true,
           }}

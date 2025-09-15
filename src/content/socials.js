@@ -1,7 +1,7 @@
 const socials = [
   {
     icon: "github.svg",
-    url: "https://github.com/thisisJohnny07",
+    url: "https://github.com/JohnReySeguma",
   },
   {
     icon: "linkedin.svg",
