@@ -1,61 +1,65 @@
-import socials from "../content/socials";
+import { motion } from "framer-motion";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
+import socials from "../content/socials";
 
-const ContactFooter = () => {
+const ContactForm = () => {
   return (
-    <footer className="contact-footer">
-      <div className="contact-container">
-        {/* Left Column */}
-        <div className="contact-col contact-left">
-          <h2>Let's talk about everything!</h2>
-          <p>
-            Send me an{" "}
-            <a href="mailto:johnreycseguma@gmail.com">email</a>. 👋
-          </p>
-        </div>
+    <motion.div
+      className="console"
+      initial={{ opacity: 0, scale: 0.92 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="console__lead">
+        <p className="console__prompt">&gt; awaiting your transmission_</p>
+        <h3>Let&apos;s build something that isn&apos;t plain.</h3>
+        <a href="mailto:johnreycseguma@gmail.com" className="console__cta">
+          Open channel <MdEmail />
+        </a>
+      </div>
 
-        {/* Middle Column */}
-        <div className="contact-col contact-middle">
-          <p className="contact-links">
-            <MdEmail className="icon" />
-            thisisjohnrey@gmail.com
-          </p>
-          <p className="contact-links email-indent">johnreycseguma@gmail.com</p>
-          <p className="contact-links">
-            <FaPhoneAlt className="icon" />
-            +63 926 171 4623
-          </p>
-          <p className="contact-links">
-            <IoLocation className="icon" />
-            Isulan Sultan Kudarat Philippines
-          </p>
-        </div>
-
-        {/* Right Column */}
-        <div className="contact-col contact-right">
-          <h3>Or find me on:</h3>
-          <div className="hero-socials">
-            {socials.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.icon.replace(".svg", "")}
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}socials/${social.icon}`}
-                  alt={social.icon.replace(".svg", "")}
-                />
-              </a>
-            ))}
+      <div className="console__grid">
+        <div className="console__row">
+          <MdEmail className="console__icon" />
+          <div>
+            <p>thisisjohnrey@gmail.com</p>
+            <p className="console__dim">johnreycseguma@gmail.com</p>
           </div>
         </div>
+        <div className="console__row">
+          <FaPhoneAlt className="console__icon" />
+          <p>+63 926 171 4623</p>
+        </div>
+        <div className="console__row">
+          <IoLocation className="console__icon" />
+          <p>Isulan, Sultan Kudarat, Philippines</p>
+        </div>
       </div>
-    </footer>
+
+      <div className="console__channels">
+        <span className="console__dim">other frequencies</span>
+        <div className="console__channels-row">
+          {socials.map((social, index) => (
+            <a
+              key={index}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.icon.replace(".svg", "")}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}socials/${social.icon}`}
+                alt={social.icon.replace(".svg", "")}
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
-export default ContactFooter;
+export default ContactForm;

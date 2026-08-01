@@ -1,11 +1,15 @@
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="deep-footer">
       <p>
-        &copy; {new Date().getFullYear()}. Made with ❤️ by{" "}
-        <a href="https://github.com/thisisJohnny07">Rey</a>.
+        — end of transmission // {new Date().getFullYear()} // built by{" "}
+        <a href="https://github.com/thisisJohnny07" target="_blank" rel="noreferrer">
+          Rey
+        </a>{" "}
+        —
       </p>
     </footer>
   );
 };
+
 export default Footer;
