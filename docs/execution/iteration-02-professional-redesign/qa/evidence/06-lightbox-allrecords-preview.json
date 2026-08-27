@@ -1,0 +1,130 @@
+{
+ "allRecordSteps": [
+  {
+   "i": 0,
+   "label": "Best Student Research — 18th Araw ng Parangal",
+   "counter": "3 / 3",
+   "images": [
+    "/john-rey-portfolio/awards/araw_ng_parangal.jpg|ok",
+    "/john-rey-portfolio/awards/araw_ng_parangal_2.jpg|ok",
+    "/john-rey-portfolio/awards/araw_ng_parangal_3.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 1,
+   "label": "Champion — 18th PSITS Regional Convention 2025",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/psits_research.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 2,
+   "label": "Champion — Kabataan Inyovator 2019",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/kabataan_inyovator.jpg|ok"
+   ],
+   "fbLink": "https://www.facebook.com/share/v/19N5bPPYJk/"
+  },
+  {
+   "i": 3,
+   "label": "Best Paper — CEAC Research Forum 2025",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/ceac_research.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 4,
+   "label": "2nd Place — NDMU Startup Hackathon 2024",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/demo_pitching.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 5,
+   "label": "6th Place — Capture-the-flag Competition 2023",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/hackforgov.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 6,
+   "label": "Champion — National Robotics Competition 2020",
+   "counter": "2 / 2",
+   "images": [
+    "/john-rey-portfolio/awards/national_robotics_competition.jpg|ok",
+    "/john-rey-portfolio/awards/national_robotics_competition_2.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 7,
+   "label": "3rd Place — 15th PSITS Regional Competition",
+   "counter": null,
+   "images": [
+    "/john-rey-portfolio/awards/programming_contest.jpg|ok"
+   ],
+   "fbLink": null
+  },
+  {
+   "i": 8,
+   "label": "Champion — Robo Fest 2019",
+   "counter": "2 / 2",
+   "images": [
+    "/john-rey-portfolio/awards/robo_fest.jpg|ok",
+    "/john-rey-portfolio/awards/robo_fest_2.jpg|ok"
+   ],
+   "fbLink": null
+  }
+ ],
+ "skillsAfter": [
+  "React",
+  "Next.js",
+  "Angular",
+  "JavaScript",
+  "HTML5",
+  "CSS3",
+  "Tailwind CSS",
+  "Bootstrap",
+  "Flutter",
+  "Capacitor",
+  "Java",
+  "C++",
+  "PHP",
+  "Node.js",
+  "Laravel",
+  "Django",
+  "MySQL",
+  "PostgreSQL",
+  "MongoDB",
+  "Firebase",
+  "AWS",
+  "Docker",
+  "XAMPP",
+  "Git",
+  "GitHub",
+  "GitLab"
+ ],
+ "contactAlerts": [],
+ "consoleErrors": [],
+ "consoleWarnings": [],
+ "exceptions": [],
+ "httpFailures": [],
+ "reducedMotionProd": {
+  "errors": [],
+  "warnings": [],
+  "state": {
+   "anims": 0,
+   "matches": true
+  }
+ }
+}

@@ -1,30 +1,39 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { headingRise, reveal, viewportHeading } from "../lib/motion";
 
-const Heading = ({ firstWord, secondWord, eyebrow }) => {
+// Section heading primitive. Iteration 03 adds an index mark: a large ghosted
+// numeral sitting behind the title as a decorative section counter, plus a
+// gradient rule. The numeral is aria-hidden — it carries no information a
+// screen-reader user needs.
+const Heading = ({ eyebrow, title, index, align = "start" }) => {
+  const reduced = useReducedMotion();
+
   return (
     <motion.div
-      className="station-heading"
-      initial={{ opacity: 0, scale: 0.85, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.6 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`section-head section-head--${align}`}
+      {...reveal(reduced, headingRise, viewportHeading)}
     >
-      {eyebrow && <span className="station-heading__eyebrow">// {eyebrow}</span>}
-      <h2 className="station-heading__title">
-        <span className="station-heading__bracket">&lt;</span>
-        {firstWord}
-        <span className="station-heading__accent">{secondWord}</span>
-        <span className="station-heading__bracket">/&gt;</span>
-      </h2>
+      {index && (
+        <span className="section-head__numeral" aria-hidden="true">
+          {index}
+        </span>
+      )}
+
+      <div className="section-head__text">
+        {eyebrow && <span className="section-head__eyebrow">{eyebrow}</span>}
+        <h2 className="section-head__title">{title}</h2>
+        <span className="section-head__rule" aria-hidden="true" />
+      </div>
     </motion.div>
   );
 };
 
 Heading.propTypes = {
-  firstWord: PropTypes.string.isRequired,
-  secondWord: PropTypes.string.isRequired,
   eyebrow: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  index: PropTypes.string,
+  align: PropTypes.oneOf(["start", "center"]),
 };
 
 export default Heading;

@@ -1,0 +1,576 @@
+{
+ "tabStrip375": {
+  "tablist": {
+   "sw": 703,
+   "cw": 312,
+   "ox": "auto",
+   "wrap": "nowrap",
+   "display": "flex"
+  },
+  "parent": {
+   "cls": "skills-board",
+   "sw": 312,
+   "cw": 312,
+   "ox": "visible"
+  }
+ },
+ "tabStripScrollTest": {
+  "host": "tab-filter",
+  "scrollLeft": 391,
+  "lastTabRight": 336,
+  "innerW": 375
+ },
+ "lastTabClickable": {
+  "label": "Tooling",
+  "right": 336,
+  "hit": null
+ },
+ "headerButtons": [
+  {
+   "label": "Open navigation",
+   "exp": "false",
+   "x": 318,
+   "y": 30,
+   "w": 36
+  }
+ ],
+ "afterHamburgerClick": {
+  "exp": "true",
+  "scrollY": 0,
+  "visibleAnchors": [
+   {
+    "t": "John Rey Seguma",
+    "href": "#about",
+    "top": 17,
+    "inViewport": true
+   },
+   {
+    "t": "About",
+    "href": "#about",
+    "top": 72,
+    "inViewport": true
+   },
+   {
+    "t": "Work",
+    "href": "#projects",
+    "top": 118,
+    "inViewport": true
+   },
+   {
+    "t": "Skills",
+    "href": "#skills",
+    "top": 163,
+    "inViewport": true
+   },
+   {
+    "t": "Experience",
+    "href": "#experience",
+    "top": 209,
+    "inViewport": true
+   },
+   {
+    "t": "Recognition",
+    "href": "#achievements",
+    "top": 254,
+    "inViewport": true
+   },
+   {
+    "t": "Education",
+    "href": "#education",
+    "top": 300,
+    "inViewport": true
+   },
+   {
+    "t": "Contact",
+    "href": "#contact",
+    "top": 345,
+    "inViewport": true
+   },
+   {
+    "t": "View Work",
+    "href": "#projects",
+    "top": 648,
+    "inViewport": true
+   },
+   {
+    "t": "Contact",
+    "href": "#contact",
+    "top": 648,
+    "inViewport": true
+   },
+   {
+    "t": "Back to top",
+    "href": "#about",
+    "top": 10662,
+    "inViewport": false
+   }
+  ]
+ },
+ "menuNavLinks": {
+  "count": 8,
+  "labels": [
+   "John Rey Seguma",
+   "About",
+   "Work",
+   "Skills",
+   "Experience",
+   "Recognition",
+   "Education",
+   "Contact"
+  ],
+  "allInViewport": true
+ },
+ "recognitionLinkBox": {
+  "x": 180,
+  "y": 275
+ },
+ "afterMenuSelect": {
+  "exp": "false",
+  "visibleHeaderLinks": 1,
+  "achTop": 72,
+  "active": [
+   "Recognition"
+  ]
+ },
+ "tabStops": [
+  {
+   "tag": "A",
+   "cls": "site-nav__logo",
+   "label": "John Rey Seguma",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 17,
+   "x": 169
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link is-active",
+   "label": "About",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 657
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Work",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 729
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Skills",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 796
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Experience",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 863
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Recognition",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 970
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Education",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 1081
+  },
+  {
+   "tag": "A",
+   "cls": "site-nav__link",
+   "label": "Contact",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 12,
+   "x": 1180
+  },
+  {
+   "tag": "A",
+   "cls": "hero__cta hero__cta--primary",
+   "label": "View Work",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 433,
+   "x": 169
+  },
+  {
+   "tag": "A",
+   "cls": "hero__cta hero__cta--ghost",
+   "label": "Contact",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 433,
+   "x": 319
+  },
+  {
+   "tag": "A",
+   "cls": "hero__social",
+   "label": "github",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 519,
+   "x": 169
+  },
+  {
+   "tag": "A",
+   "cls": "hero__social",
+   "label": "linkedin",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 519,
+   "x": 221
+  },
+  {
+   "tag": "A",
+   "cls": "hero__social",
+   "label": "instagram",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 519,
+   "x": 273
+  },
+  {
+   "tag": "A",
+   "cls": "hero__social",
+   "label": "facebook",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 519,
+   "x": 325
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "project-feature__toggle",
+   "label": "View details",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 1141,
+   "x": 770
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "project-feature__toggle",
+   "label": "View details",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 1568,
+   "x": 202
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "project-feature__toggle",
+   "label": "View details",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 2061,
+   "x": 770
+  },
+  {
+   "tag": "A",
+   "cls": "project-card__link",
+   "label": "View repository",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 2460,
+   "x": 323
+  },
+  {
+   "tag": "A",
+   "cls": "project-card__link",
+   "label": "View repository",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 2460,
+   "x": 879
+  },
+  {
+   "tag": "A",
+   "cls": "project-card__link",
+   "label": "View repository",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 2673,
+   "x": 323
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tab-filter__tab is-active",
+   "label": "All",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 3034,
+   "x": 169
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "timeline__toggle",
+   "label": "View highlights",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 3919,
+   "x": 235
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "timeline__toggle",
+   "label": "View highlights",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4182,
+   "x": 235
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Best Student Research — 18th Araw ng Par",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4549,
+   "x": 170
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Champion — 18th PSITS Regional Conventio",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4548,
+   "x": 540
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Champion — Kabataan Inyovator 2019. Open",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4548,
+   "x": 911
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Best Paper — CEAC Research Forum 2025. O",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4942,
+   "x": 170
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "2nd Place — NDMU Startup Hackathon 2024.",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4942,
+   "x": 540
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "6th Place — Capture-the-flag Competition",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 4942,
+   "x": 911
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Champion — National Robotics Competition",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 5358,
+   "x": 170
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "3rd Place — 15th PSITS Regional Competit",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 5358,
+   "x": 540
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "award-card__open",
+   "label": "Champion — Robo Fest 2019. Open photos",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 5358,
+   "x": 911
+  },
+  {
+   "tag": "LI",
+   "cls": "edu-card",
+   "label": "2021 – 2025Notre Dame of Marbel Universi",
+   "outline": "2px solid",
+   "shadow": "rgba(16, 19, 26, 0.05) 0px 2px 6px 0px, ",
+   "y": 6037,
+   "x": 169
+  },
+  {
+   "tag": "LI",
+   "cls": "edu-card",
+   "label": "2014 – 2021Laguilayan National High Scho",
+   "outline": "2px solid",
+   "shadow": "rgba(16, 19, 26, 0.05) 0px 2px 6px 0px, ",
+   "y": 6036,
+   "x": 725
+  },
+  {
+   "tag": "INPUT",
+   "cls": "contact-form__input",
+   "label": "",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6587,
+   "x": 202
+  },
+  {
+   "tag": "INPUT",
+   "cls": "contact-form__input",
+   "label": "",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6687,
+   "x": 202
+  },
+  {
+   "tag": "TEXTAREA",
+   "cls": "contact-form__input",
+   "label": "",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6787,
+   "x": 202
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "contact-form__submit",
+   "label": "Compose email",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6964,
+   "x": 202
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "thisisjohnrey@gmail.com",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6596,
+   "x": 835
+  },
+  {
+   "tag": "A",
+   "cls": "contact-channels__alt",
+   "label": "johnreycseguma@gmail.com",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6629,
+   "x": 835
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "+63 926 171 4623",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6669,
+   "x": 835
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "github",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6766,
+   "x": 806
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "linkedin",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6766,
+   "x": 858
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "instagram",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6766,
+   "x": 910
+  },
+  {
+   "tag": "A",
+   "cls": "",
+   "label": "facebook",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 6766,
+   "x": 962
+  },
+  {
+   "tag": "A",
+   "cls": "site-footer__top",
+   "label": "Back to top",
+   "outline": "2px solid",
+   "shadow": "none",
+   "y": 7202,
+   "x": 1182
+  }
+ ],
+ "noFocusRing": [],
+ "tabOrderMonotonic": [
+  [
+   "Compose email@6964",
+   "thisisjohnrey@gmail.com@6596"
+  ]
+ ],
+ "reducedMotion": {
+  "hiddenAtFirstPaint": [],
+  "animationCount": 0,
+  "infiniteCount": 0,
+  "matches": true
+ },
+ "rmCssInfinite": 0,
+ "rmLightbox": {
+  "opacity": "1",
+  "transform": "none",
+  "imgOk": true
+ },
+ "consoleErrors": [],
+ "consoleWarnings": [
+  "You have Reduced Motion enabled on your device. Animations may not appear as expected."
+ ],
+ "exceptions": [],
+ "httpFailures": []
+}

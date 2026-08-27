@@ -1,0 +1,1389 @@
+{
+  "info": {
+    "_postman_id": "e2c8b6a1-0d4f-4f2a-9d3e-i02redesign0001",
+    "name": "Iteration 02 — Professional Redesign · asset smoke",
+    "description": "Smoke suite for the John Rey Seguma portfolio (React 18 + Vite static SPA).\n\nThis project has NO backend and NO API of its own, so this collection verifies that the\nPRODUCTION BUILD and every asset the redesigned page references are actually served.\n\nHOW TO RUN\n1. cd <repo root>\n2. npm run build\n3. npm run preview        (note the port it prints, e.g. 4173)\n4. Import this collection + smoke.postman_environment.json, set {{baseUrl}} to the\n   printed origin (scheme + host + port only, e.g. http://127.0.0.1:4173).\n5. Run the collection. Every request must pass.\n\nASSUMPTIONS\n- {{basePath}} is /john-rey-portfolio (vite.config.js `base`). Leave it as-is.\n- No seeded data or credentials are needed; all assets are static files under public/.\n- The JS/CSS bundle filenames are content-hashed; request 01 parses index.html and\n  stores them in collection variables, so the suite survives a rebuild.\n\nWHAT IT DOES NOT COVER: visual layout and in-page interactions (tabs, disclosures,\nlightbox). Use qa/manual-checklist.md in a browser for those.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 · App shell",
+      "item": [
+        {
+          "name": "index.html serves and contains #root",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"index.html responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"index.html is HTML\", function () {",
+                  "    pm.expect((pm.response.headers.get('Content-Type') || '').toLowerCase()).to.include('text/html');",
+                  "});",
+                  "var body = pm.response.text();",
+                  "pm.test(\"index.html contains the React root div\", function () {",
+                  "    pm.expect(body).to.include('id=\"root\"');",
+                  "});",
+                  "pm.test(\"index.html links a hashed JS bundle\", function () {",
+                  "    pm.expect(body).to.match(/src=\"[^\"]*\\/assets\\/index-[^\"]*\\.js\"/);",
+                  "});",
+                  "pm.test(\"index.html links a hashed CSS bundle\", function () {",
+                  "    pm.expect(body).to.match(/href=\"[^\"]*\\/assets\\/index-[^\"]*\\.css\"/);",
+                  "});",
+                  "var js = body.match(/src=\"([^\"]*\\/assets\\/index-[^\"]*\\.js)\"/);",
+                  "var css = body.match(/href=\"([^\"]*\\/assets\\/index-[^\"]*\\.css)\"/);",
+                  "if (js) { pm.collectionVariables.set('jsBundlePath', js[1]); }",
+                  "if (css) { pm.collectionVariables.set('cssBundlePath', css[1]); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/"
+          },
+          "response": []
+        },
+        {
+          "name": "JS bundle serves",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"JS bundle responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"JS bundle is JavaScript\", function () {",
+                  "    pm.expect((pm.response.headers.get('Content-Type') || '').toLowerCase()).to.match(/javascript|ecmascript/);",
+                  "});",
+                  "pm.test(\"JS bundle is non-trivial in size\", function () { pm.expect(pm.response.responseSize).to.be.above(50000); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{jsBundlePath}}"
+          },
+          "response": []
+        },
+        {
+          "name": "CSS bundle serves",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"CSS bundle responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"CSS bundle is CSS\", function () {",
+                  "    pm.expect((pm.response.headers.get('Content-Type') || '').toLowerCase()).to.include('text/css');",
+                  "});",
+                  "pm.test(\"CSS bundle is non-trivial in size\", function () { pm.expect(pm.response.responseSize).to.be.above(5000); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{cssBundlePath}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 · Portrait",
+      "item": [
+        {
+          "name": "me.png (hero portrait)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"me.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"me.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"me.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/me.png"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 · Project screenshots (6)",
+      "item": [
+        {
+          "name": "ResilientLink.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"ResilientLink.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"ResilientLink.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"ResilientLink.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/ResilientLink.png"
+          },
+          "response": []
+        },
+        {
+          "name": "parking-system.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"parking-system.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"parking-system.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"parking-system.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/parking-system.png"
+          },
+          "response": []
+        },
+        {
+          "name": "hotel-system.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"hotel-system.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"hotel-system.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"hotel-system.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/hotel-system.png"
+          },
+          "response": []
+        },
+        {
+          "name": "approval-system.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"approval-system.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"approval-system.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"approval-system.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/approval-system.png"
+          },
+          "response": []
+        },
+        {
+          "name": "ChechInTrace.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"ChechInTrace.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"ChechInTrace.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"ChechInTrace.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/ChechInTrace.png"
+          },
+          "response": []
+        },
+        {
+          "name": "FocusFlow.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"FocusFlow.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"FocusFlow.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"FocusFlow.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/projects/FocusFlow.png"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 · Award photos (13)",
+      "item": [
+        {
+          "name": "araw_ng_parangal.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"araw_ng_parangal.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"araw_ng_parangal.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"araw_ng_parangal.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/araw_ng_parangal.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "araw_ng_parangal_2.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"araw_ng_parangal_2.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"araw_ng_parangal_2.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"araw_ng_parangal_2.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/araw_ng_parangal_2.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "araw_ng_parangal_3.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"araw_ng_parangal_3.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"araw_ng_parangal_3.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"araw_ng_parangal_3.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/araw_ng_parangal_3.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "psits_research.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"psits_research.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"psits_research.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"psits_research.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/psits_research.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "ceac_research.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"ceac_research.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"ceac_research.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"ceac_research.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/ceac_research.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "demo_pitching.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"demo_pitching.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"demo_pitching.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"demo_pitching.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/demo_pitching.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "hackforgov.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"hackforgov.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"hackforgov.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"hackforgov.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/hackforgov.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "national_robotics_competition.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"national_robotics_competition.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"national_robotics_competition.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"national_robotics_competition.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/national_robotics_competition.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "national_robotics_competition_2.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"national_robotics_competition_2.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"national_robotics_competition_2.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"national_robotics_competition_2.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/national_robotics_competition_2.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "kabataan_inyovator.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"kabataan_inyovator.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"kabataan_inyovator.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"kabataan_inyovator.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/kabataan_inyovator.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "programming_contest.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"programming_contest.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"programming_contest.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"programming_contest.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/programming_contest.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "robo_fest.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"robo_fest.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"robo_fest.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"robo_fest.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/robo_fest.jpg"
+          },
+          "response": []
+        },
+        {
+          "name": "robo_fest_2.jpg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"robo_fest_2.jpg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"robo_fest_2.jpg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"robo_fest_2.jpg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/awards/robo_fest_2.jpg"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "05 · Skill icons (26)",
+      "item": [
+        {
+          "name": "react.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"react.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"react.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"react.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/react.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "nextjs.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"nextjs.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"nextjs.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"nextjs.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/nextjs.png"
+          },
+          "response": []
+        },
+        {
+          "name": "angular.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"angular.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"angular.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"angular.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/angular.png"
+          },
+          "response": []
+        },
+        {
+          "name": "js.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"js.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"js.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"js.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/js.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "html.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"html.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"html.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"html.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/html.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "css.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"css.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"css.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"css.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/css.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "tailwind.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"tailwind.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"tailwind.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"tailwind.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/tailwind.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "bootstrap.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"bootstrap.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"bootstrap.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"bootstrap.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/bootstrap.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "flutter.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"flutter.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"flutter.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"flutter.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/flutter.png"
+          },
+          "response": []
+        },
+        {
+          "name": "capacitor.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"capacitor.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"capacitor.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"capacitor.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/capacitor.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "java.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"java.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"java.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"java.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/java.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "c++.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"c++.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"c++.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"c++.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/c++.png"
+          },
+          "response": []
+        },
+        {
+          "name": "php.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"php.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"php.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"php.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/php.png"
+          },
+          "response": []
+        },
+        {
+          "name": "nodejs.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"nodejs.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"nodejs.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"nodejs.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/nodejs.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "laravel.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"laravel.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"laravel.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"laravel.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/laravel.png"
+          },
+          "response": []
+        },
+        {
+          "name": "django.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"django.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"django.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"django.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/django.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "mysql.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"mysql.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"mysql.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"mysql.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/mysql.png"
+          },
+          "response": []
+        },
+        {
+          "name": "postgre.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"postgre.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"postgre.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"postgre.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/postgre.png"
+          },
+          "response": []
+        },
+        {
+          "name": "mongodb.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"mongodb.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"mongodb.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"mongodb.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/mongodb.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "firebase.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"firebase.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"firebase.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"firebase.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/firebase.png"
+          },
+          "response": []
+        },
+        {
+          "name": "aws.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"aws.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"aws.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"aws.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/aws.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "docker.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"docker.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"docker.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"docker.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/docker.png"
+          },
+          "response": []
+        },
+        {
+          "name": "xampp.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"xampp.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"xampp.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"xampp.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/xampp.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "git.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"git.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"git.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"git.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/git.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "github.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"github.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"github.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"github.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/github.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "gitlab.png",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"gitlab.png responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"gitlab.png is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"gitlab.png is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/skills/gitlab.png"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "06 · Social icons (4)",
+      "item": [
+        {
+          "name": "github.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"github.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"github.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"github.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/socials/github.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "linkedin.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"linkedin.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"linkedin.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"linkedin.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/socials/linkedin.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "instagram.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"instagram.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"instagram.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"instagram.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/socials/instagram.svg"
+          },
+          "response": []
+        },
+        {
+          "name": "facebook.svg",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"facebook.svg responds 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"facebook.svg is served as an image\", function () {",
+                  "    var ct = pm.response.headers.get('Content-Type') || '';",
+                  "    pm.expect(ct.toLowerCase()).to.match(/^image\\//);",
+                  "});",
+                  "pm.test(\"facebook.svg is not empty\", function () { pm.expect(pm.response.responseSize).to.be.above(0); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}{{basePath}}/socials/facebook.svg"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "basePath",
+      "value": "/john-rey-portfolio"
+    },
+    {
+      "key": "jsBundlePath",
+      "value": ""
+    },
+    {
+      "key": "cssBundlePath",
+      "value": ""
+    }
+  ]
+}

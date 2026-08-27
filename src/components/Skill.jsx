@@ -1,30 +1,31 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { item, riseItem } from "../lib/motion";
 
-const Skill = ({ skill }) => {
-  const label = skill.replace(/\.(svg|png)$/, "");
+// One stack tile: the icon sits in its own tinted plate above the label, and
+// the tile carries a corner notch that fills with the accent gradient on hover.
+const Skill = ({ file, label }) => {
+  const reduced = useReducedMotion();
 
   return (
-    <motion.div
-      className="module"
-      variants={{
-        hidden: { opacity: 0, y: 24, scale: 0.85 },
-        visible: { opacity: 1, y: 0, scale: 1 },
-      }}
-      whileHover={{ y: -6, scale: 1.06 }}
-    >
-      <img
-        src={`${import.meta.env.BASE_URL}skills/${skill}`}
-        alt={label}
-        className="module__img"
-      />
-      <span className="module__label">{label}</span>
-    </motion.div>
+    <motion.li className="skill-chip" variants={item(reduced, riseItem)}>
+      <span className="skill-chip__plate">
+        <img
+          src={`${import.meta.env.BASE_URL}skills/${file}`}
+          alt={label}
+          className="skill-chip__icon"
+          loading="lazy"
+        />
+      </span>
+      <span className="skill-chip__label">{label}</span>
+      <span className="skill-chip__notch" aria-hidden="true" />
+    </motion.li>
   );
 };
 
 Skill.propTypes = {
-  skill: PropTypes.string.isRequired,
+  file: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default Skill;

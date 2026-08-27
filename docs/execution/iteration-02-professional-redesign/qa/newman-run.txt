@@ -1,0 +1,351 @@
+(node:9172) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+Iteration 02 — Professional Redesign · asset smoke
+
+□ 01 · App shell
+└ index.html serves and contains #root
+  GET http://127.0.0.1:4311/john-rey-portfolio/ [200 OK, 782B, 42ms]
+  √  index.html responds 200
+  √  index.html is HTML
+  √  index.html contains the React root div
+  √  index.html links a hashed JS bundle
+  √  index.html links a hashed CSS bundle
+
+└ JS bundle serves
+  GET http://127.0.0.1:4311/john-rey-portfolio/assets/index-bUAI0doM.js [200 OK, 281.88kB, 18ms]
+  √  JS bundle responds 200
+  √  JS bundle is JavaScript
+  √  JS bundle is non-trivial in size
+
+└ CSS bundle serves
+  GET http://127.0.0.1:4311/john-rey-portfolio/assets/index-MhbuhYHG.css [200 OK, 24.01kB, 7ms]
+  √  CSS bundle responds 200
+  √  CSS bundle is CSS
+  √  CSS bundle is non-trivial in size
+
+□ 02 · Portrait
+└ me.png (hero portrait)
+  GET http://127.0.0.1:4311/john-rey-portfolio/me.png [200 OK, 7.86MB, 36ms]
+  √  me.png responds 200
+  √  me.png is served as an image
+  √  me.png is not empty
+
+□ 03 · Project screenshots (6)
+└ ResilientLink.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/ResilientLink.png [200 OK, 2.16MB, 17ms]
+  √  ResilientLink.png responds 200
+  √  ResilientLink.png is served as an image
+  √  ResilientLink.png is not empty
+
+└ parking-system.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/parking-system.png [200 OK, 745.33kB, 8ms]
+  √  parking-system.png responds 200
+  √  parking-system.png is served as an image
+  √  parking-system.png is not empty
+
+└ hotel-system.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/hotel-system.png [200 OK, 1.63MB, 11ms]
+  √  hotel-system.png responds 200
+  √  hotel-system.png is served as an image
+  √  hotel-system.png is not empty
+
+└ approval-system.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/approval-system.png [200 OK, 1.06MB, 10ms]
+  √  approval-system.png responds 200
+  √  approval-system.png is served as an image
+  √  approval-system.png is not empty
+
+└ ChechInTrace.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/ChechInTrace.png [200 OK, 127.7kB, 6ms]
+  √  ChechInTrace.png responds 200
+  √  ChechInTrace.png is served as an image
+  √  ChechInTrace.png is not empty
+
+└ FocusFlow.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/projects/FocusFlow.png [200 OK, 672.57kB, 7ms]
+  √  FocusFlow.png responds 200
+  √  FocusFlow.png is served as an image
+  √  FocusFlow.png is not empty
+
+□ 04 · Award photos (13)
+└ araw_ng_parangal.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/araw_ng_parangal.jpg [200 OK, 284.62kB, 6ms]
+  √  araw_ng_parangal.jpg responds 200
+  √  araw_ng_parangal.jpg is served as an image
+  √  araw_ng_parangal.jpg is not empty
+
+└ araw_ng_parangal_2.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/araw_ng_parangal_2.jpg [200 OK, 825.98kB, 9ms]
+  √  araw_ng_parangal_2.jpg responds 200
+  √  araw_ng_parangal_2.jpg is served as an image
+  √  araw_ng_parangal_2.jpg is not empty
+
+└ araw_ng_parangal_3.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/araw_ng_parangal_3.jpg [200 OK, 256.62kB, 4ms]
+  √  araw_ng_parangal_3.jpg responds 200
+  √  araw_ng_parangal_3.jpg is served as an image
+  √  araw_ng_parangal_3.jpg is not empty
+
+└ psits_research.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/psits_research.jpg [200 OK, 277.47kB, 6ms]
+  √  psits_research.jpg responds 200
+  √  psits_research.jpg is served as an image
+  √  psits_research.jpg is not empty
+
+└ ceac_research.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/ceac_research.jpg [200 OK, 401.94kB, 5ms]
+  √  ceac_research.jpg responds 200
+  √  ceac_research.jpg is served as an image
+  √  ceac_research.jpg is not empty
+
+└ demo_pitching.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/demo_pitching.jpg [200 OK, 298.25kB, 7ms]
+  √  demo_pitching.jpg responds 200
+  √  demo_pitching.jpg is served as an image
+  √  demo_pitching.jpg is not empty
+
+└ hackforgov.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/hackforgov.jpg [200 OK, 337.35kB, 4ms]
+  √  hackforgov.jpg responds 200
+  √  hackforgov.jpg is served as an image
+  √  hackforgov.jpg is not empty
+
+└ national_robotics_competition.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/national_robotics_competition.jpg [200 OK, 110.59kB, 6ms]
+  √  national_robotics_competition.jpg responds 200
+  √  national_robotics_competition.jpg is served as an image
+  √  national_robotics_competition.jpg is not empty
+
+└ national_robotics_competition_2.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/national_robotics_competition_2.jpg [200 OK, 296.32kB, 5ms]
+  √  national_robotics_competition_2.jpg responds 200
+  √  national_robotics_competition_2.jpg is served as an image
+  √  national_robotics_competition_2.jpg is not empty
+
+└ kabataan_inyovator.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/kabataan_inyovator.jpg [200 OK, 90.11kB, 4ms]
+  √  kabataan_inyovator.jpg responds 200
+  √  kabataan_inyovator.jpg is served as an image
+  √  kabataan_inyovator.jpg is not empty
+
+└ programming_contest.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/programming_contest.jpg [200 OK, 560.6kB, 6ms]
+  √  programming_contest.jpg responds 200
+  √  programming_contest.jpg is served as an image
+  √  programming_contest.jpg is not empty
+
+└ robo_fest.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/robo_fest.jpg [200 OK, 47.64kB, 5ms]
+  √  robo_fest.jpg responds 200
+  √  robo_fest.jpg is served as an image
+  √  robo_fest.jpg is not empty
+
+└ robo_fest_2.jpg
+  GET http://127.0.0.1:4311/john-rey-portfolio/awards/robo_fest_2.jpg [200 OK, 70.62kB, 5ms]
+  √  robo_fest_2.jpg responds 200
+  √  robo_fest_2.jpg is served as an image
+  √  robo_fest_2.jpg is not empty
+
+□ 05 · Skill icons (26)
+└ react.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/react.svg [200 OK, 3.88kB, 5ms]
+  √  react.svg responds 200
+  √  react.svg is served as an image
+  √  react.svg is not empty
+
+└ nextjs.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/nextjs.png [200 OK, 36.92kB, 3ms]
+  √  nextjs.png responds 200
+  √  nextjs.png is served as an image
+  √  nextjs.png is not empty
+
+└ angular.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/angular.png [200 OK, 83.46kB, 4ms]
+  √  angular.png responds 200
+  √  angular.png is served as an image
+  √  angular.png is not empty
+
+└ js.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/js.svg [200 OK, 1.63kB, 5ms]
+  √  js.svg responds 200
+  √  js.svg is served as an image
+  √  js.svg is not empty
+
+└ html.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/html.svg [200 OK, 765B, 5ms]
+  √  html.svg responds 200
+  √  html.svg is served as an image
+  √  html.svg is not empty
+
+└ css.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/css.svg [200 OK, 778B, 4ms]
+  √  css.svg responds 200
+  √  css.svg is served as an image
+  √  css.svg is not empty
+
+└ tailwind.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/tailwind.svg [200 OK, 789B, 4ms]
+  √  tailwind.svg responds 200
+  √  tailwind.svg is served as an image
+  √  tailwind.svg is not empty
+
+└ bootstrap.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/bootstrap.svg [200 OK, 2.89kB, 6ms]
+  √  bootstrap.svg responds 200
+  √  bootstrap.svg is served as an image
+  √  bootstrap.svg is not empty
+
+└ flutter.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/flutter.png [200 OK, 20.64kB, 4ms]
+  √  flutter.png responds 200
+  √  flutter.png is served as an image
+  √  flutter.png is not empty
+
+└ capacitor.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/capacitor.svg [200 OK, 1.61kB, 5ms]
+  √  capacitor.svg responds 200
+  √  capacitor.svg is served as an image
+  √  capacitor.svg is not empty
+
+└ java.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/java.svg [200 OK, 3.69kB, 5ms]
+  √  java.svg responds 200
+  √  java.svg is served as an image
+  √  java.svg is not empty
+
+└ c++.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/c++.png [200 OK, 44.45kB, 5ms]
+  √  c++.png responds 200
+  √  c++.png is served as an image
+  √  c++.png is not empty
+
+└ php.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/php.png [200 OK, 177.29kB, 5ms]
+  √  php.png responds 200
+  √  php.png is served as an image
+  √  php.png is not empty
+
+└ nodejs.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/nodejs.svg [200 OK, 15.65kB, 6ms]
+  √  nodejs.svg responds 200
+  √  nodejs.svg is served as an image
+  √  nodejs.svg is not empty
+
+└ laravel.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/laravel.png [200 OK, 14.47kB, 5ms]
+  √  laravel.png responds 200
+  √  laravel.png is served as an image
+  √  laravel.png is not empty
+
+└ django.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/django.svg [200 OK, 1.94kB, 5ms]
+  √  django.svg responds 200
+  √  django.svg is served as an image
+  √  django.svg is not empty
+
+└ mysql.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/mysql.png [200 OK, 271.08kB, 6ms]
+  √  mysql.png responds 200
+  √  mysql.png is served as an image
+  √  mysql.png is not empty
+
+└ postgre.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/postgre.png [200 OK, 75.22kB, 5ms]
+  √  postgre.png responds 200
+  √  postgre.png is served as an image
+  √  postgre.png is not empty
+
+└ mongodb.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/mongodb.svg [200 OK, 1.11kB, 5ms]
+  √  mongodb.svg responds 200
+  √  mongodb.svg is served as an image
+  √  mongodb.svg is not empty
+
+└ firebase.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/firebase.png [200 OK, 16.54kB, 5ms]
+  √  firebase.png responds 200
+  √  firebase.png is served as an image
+  √  firebase.png is not empty
+
+└ aws.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/aws.svg [200 OK, 7.59kB, 5ms]
+  √  aws.svg responds 200
+  √  aws.svg is served as an image
+  √  aws.svg is not empty
+
+└ docker.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/docker.png [200 OK, 11.34kB, 4ms]
+  √  docker.png responds 200
+  √  docker.png is served as an image
+  √  docker.png is not empty
+
+└ xampp.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/xampp.svg [200 OK, 2.52kB, 5ms]
+  √  xampp.svg responds 200
+  √  xampp.svg is served as an image
+  √  xampp.svg is not empty
+
+└ git.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/git.svg [200 OK, 1.65kB, 5ms]
+  √  git.svg responds 200
+  √  git.svg is served as an image
+  √  git.svg is not empty
+
+└ github.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/github.svg [200 OK, 2.38kB, 5ms]
+  √  github.svg responds 200
+  √  github.svg is served as an image
+  √  github.svg is not empty
+
+└ gitlab.png
+  GET http://127.0.0.1:4311/john-rey-portfolio/skills/gitlab.png [200 OK, 20.35kB, 4ms]
+  √  gitlab.png responds 200
+  √  gitlab.png is served as an image
+  √  gitlab.png is not empty
+
+□ 06 · Social icons (4)
+└ github.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/socials/github.svg [200 OK, 2.38kB, 4ms]
+  √  github.svg responds 200
+  √  github.svg is served as an image
+  √  github.svg is not empty
+
+└ linkedin.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/socials/linkedin.svg [200 OK, 1.21kB, 4ms]
+  √  linkedin.svg responds 200
+  √  linkedin.svg is served as an image
+  √  linkedin.svg is not empty
+
+└ instagram.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/socials/instagram.svg [200 OK, 3.73kB, 5ms]
+  √  instagram.svg responds 200
+  √  instagram.svg is served as an image
+  √  instagram.svg is not empty
+
+└ facebook.svg
+  GET http://127.0.0.1:4311/john-rey-portfolio/socials/facebook.svg [200 OK, 860B, 5ms]
+  √  facebook.svg responds 200
+  √  facebook.svg is served as an image
+  √  facebook.svg is not empty
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              53 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              53 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │             161 │               0 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 6s                                      │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 19.23MB (approx)                       │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 7ms [min: 3ms, max: 42ms, s.d.: 6ms] │
+└─────────────────────────────────────────────────────────────┘

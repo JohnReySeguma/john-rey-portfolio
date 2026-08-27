@@ -1,29 +1,41 @@
 import "./App.css";
-import { motion } from "framer-motion";
+import { MotionConfig, motion, useReducedMotion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Heading from "./components/Heading";
-import ProjectCard from "./components/ProjectCard";
-import Skill from "./components/Skill";
+import ProjectFeature from "./components/ProjectFeature";
+import SkillsBoard from "./components/SkillsBoard";
+import ExperienceEntry from "./components/ExperienceEntry";
+import AwardsWall from "./components/AwardsWall";
+import EducationCard from "./components/EducationCard";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import Starfield from "./components/Starfield";
-import FlightPath from "./components/FlightPath";
 import information from "./content/information";
+import sections from "./content/sections";
 import projects from "./content/projects";
-import skills from "./content/skills";
+import skills, { categories } from "./content/skills";
+import experience from "./content/experience";
+import achievements from "./content/achievements";
+import education from "./content/education";
+import { reveal, staggerContainer } from "./lib/motion";
+import useHashScroll from "./lib/useHashScroll";
 
-const gridContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
+// Section copy lives in content/sections.js; the JSX order below must match that
+// array's order, which is the page order.
+const byId = (id) => sections.find((s) => s.id === id);
+
+// Decorative section counter: the hero carries no numeral, so the six titled
+// sections are numbered 01..06 in registry order. Derived, never hand-written.
+const titled = sections.filter((s) => s.title);
+const numeral = (id) =>
+  String(titled.findIndex((s) => s.id === id) + 1).padStart(2, "0");
 
 function App() {
-  return (
-    <>
-      <Starfield />
-      <FlightPath />
+  const reduced = useReducedMotion();
+  useHashScroll();
 
+  return (
+    <MotionConfig reducedMotion="user">
       <Navbar
         firstName={information.userData.firstName}
         lastName={information.userData.lastName}
@@ -31,50 +43,105 @@ function App() {
 
       <Hero
         img={information.userData.img}
-        description={information.userData.description}
-        title={information.userData.title}
+        firstName={information.userData.firstName}
+        lastName={information.userData.lastName}
       />
 
-      <section id="projects" className="station">
-        <Heading eyebrow="mission log" firstWord="My" secondWord="Projects" />
-        <div className="mission-grid">
+      <section id="projects" className="section section--work">
+        <Heading
+          eyebrow={byId("projects").eyebrow}
+          title={byId("projects").title}
+          index={numeral("projects")}
+        />
+
+        <div className="project-features">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={project.name}
+            <ProjectFeature
+              key={project.id}
               index={index}
               name={project.name}
               img={project.img}
+              imgWidth={project.imgWidth}
+              imgHeight={project.imgHeight}
               description={project.description}
               stack={project.stack}
               source={project.sourceCode}
-              preview={project.preview}
             />
           ))}
         </div>
       </section>
 
-      <section id="skills" className="station">
-        <Heading eyebrow="cargo hold" firstWord="Skills" secondWord="&Tools" />
-        <motion.div
-          className="module-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={gridContainer}
-        >
-          {skills.map((skill, index) => (
-            <Skill key={index} skill={skill} />
-          ))}
-        </motion.div>
+      <section id="skills" className="section section--skills">
+        <Heading
+          eyebrow={byId("skills").eyebrow}
+          title={byId("skills").title}
+          index={numeral("skills")}
+        />
+        <SkillsBoard skills={skills} categories={categories} />
       </section>
 
-      <section id="contact" className="station">
-        <Heading eyebrow="ground control" firstWord="Contact" secondWord="Me" />
+      <section id="experience" className="section section--experience">
+        <Heading
+          eyebrow={byId("experience").eyebrow}
+          title={byId("experience").title}
+          index={numeral("experience")}
+        />
+        <motion.ul className="timeline" {...reveal(reduced, staggerContainer)}>
+          {experience.map((role) => (
+            <ExperienceEntry
+              key={role.id}
+              company={role.company}
+              title={role.title}
+              type={role.type}
+              start={role.start}
+              end={role.end}
+              current={role.current}
+              highlights={role.highlights}
+            />
+          ))}
+        </motion.ul>
+      </section>
+
+      <section id="achievements" className="section section--recognition">
+        <Heading
+          eyebrow={byId("achievements").eyebrow}
+          title={byId("achievements").title}
+          index={numeral("achievements")}
+        />
+        <AwardsWall achievements={achievements} />
+      </section>
+
+      <section id="education" className="section section--education">
+        <Heading
+          eyebrow={byId("education").eyebrow}
+          title={byId("education").title}
+          index={numeral("education")}
+        />
+        <motion.ul className="edu-grid" {...reveal(reduced, staggerContainer)}>
+          {education.map((entry) => (
+            <EducationCard
+              key={entry.id}
+              institution={entry.institution}
+              program={entry.program}
+              start={entry.start}
+              end={entry.end}
+            />
+          ))}
+        </motion.ul>
+      </section>
+
+      <section id="contact" className="section section--contact">
+        <Heading
+          eyebrow={byId("contact").eyebrow}
+          title={byId("contact").title}
+          index={numeral("contact")}
+          align="center"
+        />
         <ContactForm />
       </section>
 
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
 

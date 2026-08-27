@@ -1,0 +1,202 @@
+{
+ "aboutEl": {
+  "tag": "DIV",
+  "cls": "hero"
+ },
+ "heroSocialNames": [
+  "github",
+  "linkedin",
+  "instagram",
+  "facebook"
+ ],
+ "cta_mouse_viewwork": {
+  "top": 72,
+  "scrollY": 567
+ },
+ "cta_key_contact": {
+  "top": 72,
+  "scrollY": 6222
+ },
+ "feature_before": [
+  {
+   "label": "View details",
+   "exp": "false",
+   "ctl": ":r1:-panel"
+  },
+  {
+   "label": "View details",
+   "exp": "false",
+   "ctl": ":r3:-panel"
+  },
+  {
+   "label": "View details",
+   "exp": "false",
+   "ctl": ":r5:-panel"
+  }
+ ],
+ "feature_after_click": {
+  "exp": "true",
+  "panelExists": true,
+  "imgs": [
+   {
+    "src": "/john-rey-portfolio/projects/ResilientLink.png",
+    "ok": true
+   }
+  ],
+  "textLen": 268,
+  "text": "A multi-platform system with a web app for disaster coordination, a citizen app for receiving advisories and finding drop-off points, and a staff app for managing and distributing relief goods.\n\nFlutter\nFirebase\nPaymongo\nGoogle Maps API\nOpenWeather API\nView repository",
+  "links": [
+   {
+    "t": "View repository",
+    "href": "https://github.com/JohnReySeguma/ResilientlinkWeb.git",
+    "target": "_blank",
+    "rel": "noopener noreferrer"
+   }
+  ]
+ },
+ "feature1_after_enter": "true",
+ "feature1_after_space": "false",
+ "allFeatureRepoLinks": [
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/ResilientlinkWeb.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/Smart-Parking-App.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/Hotel-Reservation-System.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/Online-Approval-App-Backend.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/School-Event-Attendance-Management-System.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/FocusFlow-To-Do-App-.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  }
+ ],
+ "featurePanelImgsAll": [
+  {
+   "src": "/john-rey-portfolio/projects/ResilientLink.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/ResilientLink.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/parking-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/parking-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/hotel-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/hotel-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/approval-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/ChechInTrace.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/FocusFlow.png",
+   "ok": true
+  }
+ ],
+ "skills_all_count": 26,
+ "skills_after_mouse_Mobile": {
+  "tab": "Mobile",
+  "tiles": [
+   "Flutter",
+   "Capacitor"
+  ],
+  "groupHeads": [],
+  "panelLabel": {
+   "label": null,
+   "by": ":r7:-tab-2"
+  }
+ },
+ "skills_after_ArrowRight": {
+  "tab": "Languages & Backend",
+  "tiles": [
+   "Java",
+   "C++",
+   "PHP",
+   "Node.js",
+   "Laravel",
+   "Django"
+  ]
+ },
+ "skills_after_Home": {
+  "tab": "All",
+  "tiles": 26
+ },
+ "skills_tabstops": 1,
+ "exp_after_click": {
+  "exp": "true",
+  "items": 1,
+  "first": "Develop and maintain mobile and web applications for various clients across different industries."
+ },
+ "exp1_after_space": "true",
+ "exp1_after_enter": "false",
+ "edu_focus_reveal": {
+  "tabIndex": "0",
+  "before": "matrix(1, 0, 0, 0, 0, 0)",
+  "after": "matrix(1, 0, 0, 1, 0, 0)",
+  "focusWithin": true
+ },
+ "contact_empty_submit": {
+  "n": 3,
+  "msgs": [
+   "Please enter your name.",
+   "Please enter your email address.",
+   "Please enter a message."
+  ],
+  "visible": [
+   true,
+   true,
+   true
+  ]
+ },
+ "contact_bad_email": {
+  "msgs": [
+   "Please enter a valid email address, for example name@example.com."
+  ],
+  "describedby": "contact-email-error",
+  "invalid": "true"
+ },
+ "contact_hasMessageSent": false,
+ "consoleErrors": [],
+ "consoleWarnings": [],
+ "exceptions": [],
+ "httpFailures": []
+}

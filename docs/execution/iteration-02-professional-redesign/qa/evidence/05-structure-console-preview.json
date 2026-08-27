@@ -1,0 +1,474 @@
+{
+ "url": "http://127.0.0.1:4311/john-rey-portfolio/",
+ "canvasCount": 0,
+ "spaceEls": [],
+ "bannedWords": {
+  "mission": [
+   "TS Regional Convention 2025 |  | Video | Champion |  | Mission Harvest Robotics Competition |  | Kabataa",
+   "he-flag Competition 2023 |  | 2 photos | Champion |  | Mission Harvest Robotics Competition |  | Nationa"
+  ]
+ },
+ "emoji": [
+  "©"
+ ],
+ "bodyBg": "rgb(255, 255, 255)",
+ "headings": [
+  "H1 :: John Rey Seguma",
+  "H2 :: Selected Work",
+  "H2 :: Tech Stack",
+  "H2 :: Experience",
+  "H2 :: Tech Events & Awards",
+  "H2 :: Education",
+  "H2 :: Get in Touch"
+ ],
+ "sections": [
+  {
+   "id": "projects",
+   "eyebrow": "Projects",
+   "h2": "Selected Work"
+  },
+  {
+   "id": "skills",
+   "eyebrow": "Toolbox",
+   "h2": "Tech Stack"
+  },
+  {
+   "id": "experience",
+   "eyebrow": "Career",
+   "h2": "Experience"
+  },
+  {
+   "id": "achievements",
+   "eyebrow": "Competitions & Research",
+   "h2": "Tech Events & Awards"
+  },
+  {
+   "id": "education",
+   "eyebrow": "Background",
+   "h2": "Education"
+  },
+  {
+   "id": "contact",
+   "eyebrow": "Say hello",
+   "h2": "Get in Touch"
+  }
+ ],
+ "bracketHeading": [],
+ "h1": [
+  "John Rey Seguma"
+ ],
+ "heroText": "John Rey Seguma\n\nJunior Software Developer\n\nI build mobile and web applications for clients across a range of industries. I care about clear interfaces, dependable systems and work that holds up in production.\n\nView Work\nContact",
+ "heroDigits": null,
+ "heroAnchors": [
+  {
+   "t": "View Work",
+   "href": "#projects",
+   "target": "",
+   "rel": ""
+  },
+  {
+   "t": "Contact",
+   "href": "#contact",
+   "target": "",
+   "rel": ""
+  },
+  {
+   "t": "",
+   "href": "https://github.com/JohnReySeguma",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "",
+   "href": "https://www.linkedin.com/in/john-rey-seguma-58b310339/",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "",
+   "href": "https://www.instagram.com/thejorey/",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "",
+   "href": "https://www.facebook.com/johnrey.seguma.77",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  }
+ ],
+ "heroCanvasOrTypewriter": 0,
+ "projectEls": [
+  {
+   "cls": "project-feature",
+   "w": 1088,
+   "h": 413,
+   "title": "ResilientLink: PDRRMO Disaster Management Platform"
+  },
+  {
+   "cls": "project-feature project-feature--reverse",
+   "w": 1088,
+   "h": 368,
+   "title": "Smart Online Parking System"
+  },
+  {
+   "cls": "project-feature",
+   "w": 1088,
+   "h": 413,
+   "title": "Hotel Management System"
+  },
+  {
+   "cls": "project-card",
+   "w": 532,
+   "h": 208,
+   "title": "Accounting Online Approval System"
+  },
+  {
+   "cls": "project-card",
+   "w": 532,
+   "h": 208,
+   "title": "CheckInTrace: School Events Attendance Management System"
+  },
+  {
+   "cls": "project-card",
+   "w": 532,
+   "h": 189,
+   "title": "FocusFlow: To-Do List Application"
+  }
+ ],
+ "projectRepoLinks": [
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/Online-Approval-App-Backend.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/School-Event-Attendance-Management-System.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  },
+  {
+   "t": "View repository",
+   "href": "https://github.com/JohnReySeguma/FocusFlow-To-Do-App-.git",
+   "target": "_blank",
+   "rel": "noopener noreferrer"
+  }
+ ],
+ "projectImgs": [
+  {
+   "src": "/john-rey-portfolio/projects/ResilientLink.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/parking-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/hotel-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/approval-system.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/ChechInTrace.png",
+   "ok": true
+  },
+  {
+   "src": "/john-rey-portfolio/projects/FocusFlow.png",
+   "ok": true
+  }
+ ],
+ "skillTabs": [
+  {
+   "label": "All",
+   "sel": "true",
+   "ti": "0"
+  },
+  {
+   "label": "Frontend",
+   "sel": "false",
+   "ti": "-1"
+  },
+  {
+   "label": "Mobile",
+   "sel": "false",
+   "ti": "-1"
+  },
+  {
+   "label": "Languages & Backend",
+   "sel": "false",
+   "ti": "-1"
+  },
+  {
+   "label": "Data",
+   "sel": "false",
+   "ti": "-1"
+  },
+  {
+   "label": "Cloud & DevOps",
+   "sel": "false",
+   "ti": "-1"
+  },
+  {
+   "label": "Tooling",
+   "sel": "false",
+   "ti": "-1"
+  }
+ ],
+ "skillGroupHeadings": [],
+ "skillTiles": {
+  "count": 26,
+  "pairs": [
+   [
+    "React",
+    "React"
+   ],
+   [
+    "Next.js",
+    "Next.js"
+   ],
+   [
+    "Angular",
+    "Angular"
+   ],
+   [
+    "JavaScript",
+    "JavaScript"
+   ],
+   [
+    "HTML5",
+    "HTML5"
+   ],
+   [
+    "CSS3",
+    "CSS3"
+   ],
+   [
+    "Tailwind CSS",
+    "Tailwind CSS"
+   ],
+   [
+    "Bootstrap",
+    "Bootstrap"
+   ],
+   [
+    "Flutter",
+    "Flutter"
+   ],
+   [
+    "Capacitor",
+    "Capacitor"
+   ],
+   [
+    "Java",
+    "Java"
+   ],
+   [
+    "C++",
+    "C++"
+   ],
+   [
+    "PHP",
+    "PHP"
+   ],
+   [
+    "Node.js",
+    "Node.js"
+   ],
+   [
+    "Laravel",
+    "Laravel"
+   ],
+   [
+    "Django",
+    "Django"
+   ],
+   [
+    "MySQL",
+    "MySQL"
+   ],
+   [
+    "PostgreSQL",
+    "PostgreSQL"
+   ],
+   [
+    "MongoDB",
+    "MongoDB"
+   ],
+   [
+    "Firebase",
+    "Firebase"
+   ],
+   [
+    "AWS",
+    "AWS"
+   ],
+   [
+    "Docker",
+    "Docker"
+   ],
+   [
+    "XAMPP",
+    "XAMPP"
+   ],
+   [
+    "Git",
+    "Git"
+   ],
+   [
+    "GitHub",
+    "GitHub"
+   ],
+   [
+    "GitLab",
+    "GitLab"
+   ]
+  ],
+  "broken": []
+ },
+ "awardSection": {
+  "h2": "Tech Events & Awards",
+  "eyebrow": "Competitions & Research",
+  "hasAcademic": false,
+  "cardButtons": 9,
+  "thumbs": [
+   {
+    "src": "/john-rey-portfolio/awards/araw_ng_parangal.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/psits_research.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/kabataan_inyovator.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/ceac_research.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/demo_pitching.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/hackforgov.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/national_robotics_competition.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/programming_contest.jpg",
+    "ok": true,
+    "alt": ""
+   },
+   {
+    "src": "/john-rey-portfolio/awards/robo_fest.jpg",
+    "ok": true,
+    "alt": ""
+   }
+  ]
+ },
+ "awardTitles": [
+  "Best Student Research",
+  "Champion",
+  "Champion",
+  "Best Paper",
+  "2nd Place",
+  "6th Place",
+  "Champion",
+  "3rd Place",
+  "Champion"
+ ],
+ "nav": [
+  "John Rey Seguma",
+  "About",
+  "Work",
+  "Skills",
+  "Experience",
+  "Recognition",
+  "Education",
+  "Contact"
+ ],
+ "footer": {
+  "text": "© 2026 John Rey Seguma\n\nBack to top",
+  "hasDoubleSlash": false,
+  "links": [
+   {
+    "t": "Back to top",
+    "href": "#about",
+    "rel": ""
+   }
+  ]
+ },
+ "experience": {
+  "text": "CAREER\nExperience\n\n08/2025 – Present\nOngoing\n\nSmartech Solutions Philippines Inc.\n\nJunior Software Developer\n\nFull-Time\nView highlights\n\n01/2025 – 05/2025\n\nLEADSolutions, Inc.\n\nFull Stack Developer\n\nInternship\nView highlights",
+  "capsPresent": false,
+  "toggles": [
+   "false",
+   "false"
+  ]
+ },
+ "education": {
+  "text": "BACKGROUND\nEducation\n\n2021 – 2025\n\nNotre Dame of Marbel University\n\nBachelor of Science in Information Technology\n\n2014 – 2021\n\nLaguilayan National High School\n\nInformation and Communications Technology",
+  "cards": 2
+ },
+ "contactChannels": [
+  {
+   "t": "thisisjohnrey@gmail.com",
+   "href": "mailto:thisisjohnrey@gmail.com"
+  },
+  {
+   "t": "johnreycseguma@gmail.com",
+   "href": "mailto:johnreycseguma@gmail.com"
+  },
+  {
+   "t": "+63 926 171 4623",
+   "href": "tel:+639261714623"
+  },
+  {
+   "t": "",
+   "href": "https://github.com/JohnReySeguma"
+  },
+  {
+   "t": "",
+   "href": "https://www.linkedin.com/in/john-rey-seguma-58b310339/"
+  },
+  {
+   "t": "",
+   "href": "https://www.instagram.com/thejorey/"
+  },
+  {
+   "t": "",
+   "href": "https://www.facebook.com/johnrey.seguma.77"
+  }
+ ],
+ "sectionOrder": [
+  "projects",
+  "skills",
+  "experience",
+  "achievements",
+  "education",
+  "contact"
+ ],
+ "imageCount": 50,
+ "brokenImages": [],
+ "consoleErrors": [],
+ "consoleWarnings": [],
+ "exceptions": [],
+ "httpFailures": []
+}

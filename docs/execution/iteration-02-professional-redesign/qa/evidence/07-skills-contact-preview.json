@@ -1,0 +1,53 @@
+{
+ "skillsTabClicked": {
+  "x": 507,
+  "y": 450,
+  "label": "Languages & Backend"
+ },
+ "skillsAfterMouse": {
+  "active": "Languages & Backend",
+  "tiles": [
+   "Java",
+   "C++",
+   "PHP",
+   "Node.js",
+   "Laravel",
+   "Django"
+  ]
+ },
+ "skillsAfterKey": {
+  "active": "Data",
+  "tiles": [
+   "MySQL",
+   "PostgreSQL",
+   "MongoDB",
+   "Firebase"
+  ]
+ },
+ "contactSubmitClicked": {
+  "x": 289,
+  "y": 638,
+  "label": "Compose email"
+ },
+ "contactAlerts": [
+  {
+   "t": "Please enter your name.",
+   "h": 23
+  },
+  {
+   "t": "Please enter your email address.",
+   "h": 23
+  },
+  {
+   "t": "Please enter a message.",
+   "h": 23
+  }
+ ],
+ "contactBadEmail": [
+  "Please enter a valid email address, for example name@example.com."
+ ],
+ "consoleErrors": [],
+ "consoleWarnings": [],
+ "exceptions": [],
+ "httpFailures": []
+}

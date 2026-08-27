@@ -1,152 +1,77 @@
-import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
-import { AnimatePresence, motion } from "framer-motion";
-import Typewriter from "typewriter-effect";
+import { motion, useReducedMotion } from "framer-motion";
+import { IoArrowDown } from "react-icons/io5";
 import socials from "../content/socials";
+import hero from "../content/hero";
+import { item, reveal, riseItem, staggerContainer } from "../lib/motion";
 
-const bootLines = [
-  "> establishing uplink...",
-  "> signal locked",
-  "> decrypting crew manifest",
-  "> welcome aboard",
-];
-
-const bootContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.35, delayChildren: 0.2 } },
-};
-const bootLine = {
-  hidden: { opacity: 0, x: -10 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-};
-
-const dossierContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.18, delayChildren: 0.15 } },
-};
-const dossierLine = {
-  hidden: { opacity: 0, x: -8 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.35 } },
-};
-
-// Boot sequence plays for this long, then unmounts and the profile reveals.
-const BOOT_DURATION_MS = 2100;
-
-// Splits the bio into short "log entries" — one per emoji-terminated
-// sentence — instead of rendering it as a single dense paragraph.
-const splitIntoLogEntries = (text) =>
-  text
-    .split(/(?<=\p{Extended_Pictographic}\uFE0F?(?:\u200D\p{Extended_Pictographic}\uFE0F?)*)\s+/u)
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-const Hero = ({ img, description, title }) => {
-  const [booted, setBooted] = useState(false);
-  const logEntries = useMemo(() => splitIntoLogEntries(description), [description]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setBooted(true), BOOT_DURATION_MS);
-    return () => clearTimeout(timer);
-  }, []);
+// The hero is the one section with depth: a mesh of two blurred accent fields
+// over a dot grid and an offset frame behind the portrait. Every decorative
+// layer is aria-hidden. Iteration 04 removed the stack ticker that used to close
+// the section; the hero now ends on the social row over a hairline rule.
+const Hero = ({ img, firstName, lastName }) => {
+  const reduced = useReducedMotion();
+  const name = `${firstName} ${lastName}`;
 
   return (
     <div id="about" className="hero">
-      <AnimatePresence>
-        {!booted && (
-          <motion.div
-            className="hero__boot"
-            variants={bootContainer}
-            initial="hidden"
-            animate="visible"
-            exit={{ opacity: 0, transition: { duration: 0.4 } }}
-          >
-            {bootLines.map((line) => (
-              <motion.p key={line} variants={bootLine}>
-                {line}
-              </motion.p>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="hero__backdrop" aria-hidden="true">
+        <span className="hero__blob hero__blob--a" />
+        <span className="hero__blob hero__blob--b" />
+        <span className="hero__mesh" />
+      </div>
 
-      <motion.div
-        className="hero__content"
-        initial={false}
-        animate={{ opacity: booted ? 1 : 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <motion.div
-          className="hero__porthole"
-          initial={false}
-          animate={booted ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -30 }}
-          transition={{ type: "spring", stiffness: 140, damping: 14 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <div className="hero__porthole-ring" />
-          <img src={`${import.meta.env.BASE_URL}${img}`} alt="Profile" />
+      <motion.div className="hero__inner" {...reveal(reduced, staggerContainer)}>
+        <motion.div className="hero__portrait" variants={item(reduced, riseItem)}>
+          <span className="hero__portrait-frame" aria-hidden="true" />
+          <span className="hero__portrait-glow" aria-hidden="true" />
+          <img src={`${import.meta.env.BASE_URL}${img}`} alt={name} />
+          <span className="hero__portrait-tag">{hero.role}</span>
         </motion.div>
 
-        <p className="hero__designation">{title}</p>
+        <div className="hero__body">
+          <motion.p className="hero__status" variants={item(reduced, riseItem)}>
+            <span className="hero__status-dot" aria-hidden="true" />
+            {hero.status}
+          </motion.p>
 
-        <h1 className="hero__name">
-          <span>&lt;</span>JohnRey<span className="hero__accent">Seguma/&gt;</span>
-        </h1>
+          <motion.h1 className="hero__name" variants={item(reduced, riseItem)}>
+            <span className="hero__name-line">{firstName}</span>{" "}
+            <span className="hero__name-line hero__name-line--accent">{lastName}</span>
+          </motion.h1>
 
-        <div className="hero__role">
-          <span className="hero__role-label">CLASSIFICATION:</span>
-          <Typewriter
-            options={{
-              strings: ["Junior Software Developer", "Robotics Enthusiast", "Tech Innovator"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
+          <motion.p className="hero__intro" variants={item(reduced, riseItem)}>
+            {hero.intro}
+          </motion.p>
 
-        <motion.div
-          className="hero__dossier"
-          variants={dossierContainer}
-          initial="hidden"
-          animate={booted ? "visible" : "hidden"}
-        >
-          <span className="hero__dossier-heading">crew file // personnel log</span>
-          {logEntries.map((line, i) => (
-            <motion.p key={i} className="hero__dossier-line" variants={dossierLine}>
-              <span className="hero__dossier-marker">{String(i + 1).padStart(2, "0")}</span>
-              {line}
-            </motion.p>
-          ))}
-        </motion.div>
-
-        <div className="hero__channels">
-          <span className="hero__channels-label">open comm channels</span>
-          <div className="hero__channels-row">
-            {socials.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero__channel"
-                aria-label={social.icon.replace(".svg", "")}
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}socials/${social.icon}`}
-                  alt={social.icon.replace(".svg", "")}
-                />
+          <motion.div className="hero__actions" variants={item(reduced, riseItem)}>
+            {hero.ctas.map(({ label, href, variant }) => (
+              <a key={href} className={`hero__cta hero__cta--${variant}`} href={href}>
+                {label}
+                {variant === "primary" && <IoArrowDown aria-hidden="true" />}
               </a>
             ))}
-          </div>
-        </div>
+          </motion.div>
 
-        <motion.a
-          href="#projects"
-          className="hero__scroll-cue"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          scroll to descend ↓
-        </motion.a>
+          <motion.ul className="hero__socials" variants={item(reduced, riseItem)}>
+            {socials.map((social) => (
+              <li key={social.url}>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero__social"
+                  aria-label={social.icon.replace(".svg", "")}
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}socials/${social.icon}`}
+                    alt={social.icon.replace(".svg", "")}
+                  />
+                </a>
+              </li>
+            ))}
+          </motion.ul>
+        </div>
       </motion.div>
     </div>
   );
@@ -154,8 +79,8 @@ const Hero = ({ img, description, title }) => {
 
 Hero.propTypes = {
   img: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
 };
 
 export default Hero;

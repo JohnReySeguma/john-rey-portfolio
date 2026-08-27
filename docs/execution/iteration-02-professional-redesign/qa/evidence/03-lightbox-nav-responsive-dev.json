@@ -1,0 +1,422 @@
+{
+ "awardCards": [
+  {
+   "title": "Best Student Research",
+   "text": "3 photos | Best Student Research |  | 18th Araw ng Parangal",
+   "thumb": "/john-rey-portfolio/awards/araw_ng_parangal.jpg"
+  },
+  {
+   "title": "Champion",
+   "text": "Champion |  | Research Capstone Presentation |  | 18th PSITS Regional Convention 2025",
+   "thumb": "/john-rey-portfolio/awards/psits_research.jpg"
+  },
+  {
+   "title": "Champion",
+   "text": "Video | Champion |  | Mission Harvest Robotics Competition |  | Kabataan Inyovator 2019",
+   "thumb": "/john-rey-portfolio/awards/kabataan_inyovator.jpg"
+  },
+  {
+   "title": "Best Paper",
+   "text": "Best Paper |  | Information and Computer Technologies Category |  | CEAC Research Forum 2025",
+   "thumb": "/john-rey-portfolio/awards/ceac_research.jpg"
+  },
+  {
+   "title": "2nd Place",
+   "text": "2nd Place |  | Demo Pitching |  | NDMU Startup Hackathon 2024",
+   "thumb": "/john-rey-portfolio/awards/demo_pitching.jpg"
+  },
+  {
+   "title": "6th Place",
+   "text": "6th Place |  | HACKFORGOV |  | Capture-the-flag Competition 2023",
+   "thumb": "/john-rey-portfolio/awards/hackforgov.jpg"
+  },
+  {
+   "title": "Champion",
+   "text": "2 photos | Champion |  | Mission Harvest Robotics Competition |  | National Robotics Competition 2020",
+   "thumb": "/john-rey-portfolio/awards/national_robotics_competition.jpg"
+  },
+  {
+   "title": "3rd Place",
+   "text": "3rd Place |  | Programming Competition |  | 15th PSITS Regional Competition",
+   "thumb": "/john-rey-portfolio/awards/programming_contest.jpg"
+  },
+  {
+   "title": "Champion",
+   "text": "2 photos | Champion |  | Line Tracing Competition |  | Robo Fest 2019",
+   "thumb": "/john-rey-portfolio/awards/robo_fest.jpg"
+  }
+ ],
+ "lb_open": {
+  "modal": "true",
+  "label": "Best Student Research — 18th Araw ng Parangal",
+  "focused": "BUTTON:Close",
+  "imgs": [
+   {
+    "src": "/john-rey-portfolio/awards/araw_ng_parangal.jpg",
+    "ok": true
+   }
+  ],
+  "counter": "Best Student Research — 18th Araw ng Parangal |  | 1 / 3",
+  "navButtons": [
+   "Close",
+   "Previous image",
+   "Next image"
+  ]
+ },
+ "scrollLock": {
+  "before": 4294,
+  "after": 4294,
+  "locked": true
+ },
+ "imageSteps": [
+  {
+   "img": "/john-rey-portfolio/awards/araw_ng_parangal.jpg",
+   "text": "Best Student Research — 18th Araw ng Parangal |  | 1 / 3"
+  },
+  {
+   "img": "/john-rey-portfolio/awards/araw_ng_parangal_2.jpg",
+   "text": "Best Student Research — 18th Araw ng Parangal |  | 2 / 3"
+  },
+  {
+   "img": "/john-rey-portfolio/awards/araw_ng_parangal_3.jpg",
+   "text": "Best Student Research — 18th Araw ng Parangal |  | 3 / 3"
+  }
+ ],
+ "lb_after_esc": {
+  "dialog": false,
+  "active": "award-card__open | ",
+  "inAchievements": true,
+  "bodyOverflow": "hidden auto"
+ },
+ "scrollAfterClose": {
+  "before": 4294,
+  "after": 4694,
+  "scrolls": true
+ },
+ "lb_kb_open": {
+  "ok": true,
+  "title": "6th Place — Capture-the-flag Competition 2023",
+  "imgs": [
+   "/john-rey-portfolio/awards/hackforgov.jpg"
+  ],
+  "buttons": [
+   "Close"
+  ]
+ },
+ "lb_close_control": {
+  "w": 36,
+  "h": 36
+ },
+ "lb_closed_by_control": true,
+ "kabataanIndex": 2,
+ "kabataan": {
+  "text": "Champion — Kabataan Inyovator 2019 |  | Watch on Facebook",
+  "iframes": 0,
+  "iframeSrcs": [],
+  "links": [
+   {
+    "t": "Watch on Facebook",
+    "href": "https://www.facebook.com/share/v/19N5bPPYJk/",
+    "target": "_blank",
+    "rel": "noopener noreferrer",
+    "visible": true
+   }
+  ],
+  "imgs": [
+   {
+    "src": "/john-rey-portfolio/awards/kabataan_inyovator.jpg",
+    "ok": true,
+    "w": 846,
+    "h": 475
+   }
+  ],
+  "dialogH": 618
+ },
+ "iframeAudit": [
+  {
+   "i": 0,
+   "title": "3 photos / Best Student Research / 18th Araw ng Parangal",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/araw_ng_parangal.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 1,
+   "title": "Champion / Research Capstone Presentation / 18th PSITS Regional Convention 2025",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/psits_research.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 2,
+   "title": "Video / Champion / Mission Harvest Robotics Competition",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/kabataan_inyovator.jpg"
+   ],
+   "fbLinks": [
+    "https://www.facebook.com/share/v/19N5bPPYJk/"
+   ]
+  },
+  {
+   "i": 3,
+   "title": "Best Paper / Information and Computer Technologies Category / CEAC Research Forum 2025",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/ceac_research.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 4,
+   "title": "2nd Place / Demo Pitching / NDMU Startup Hackathon 2024",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/demo_pitching.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 5,
+   "title": "6th Place / HACKFORGOV / Capture-the-flag Competition 2023",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/hackforgov.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 6,
+   "title": "2 photos / Champion / Mission Harvest Robotics Competition",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/national_robotics_competition.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 7,
+   "title": "3rd Place / Programming Competition / 15th PSITS Regional Competition",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/programming_contest.jpg"
+   ],
+   "fbLinks": []
+  },
+  {
+   "i": 8,
+   "title": "2 photos / Champion / Line Tracing Competition",
+   "iframes": 0,
+   "imgs": [
+    "/john-rey-portfolio/awards/robo_fest.jpg"
+   ],
+   "fbLinks": []
+  }
+ ],
+ "navResults": [
+  {
+   "label": "John Rey Seguma",
+   "href": "#about",
+   "top": 0,
+   "active": [
+    "About"
+   ]
+  },
+  {
+   "label": "About",
+   "href": "#about",
+   "top": 0,
+   "active": [
+    "About"
+   ]
+  },
+  {
+   "label": "Work",
+   "href": "#projects",
+   "top": 72,
+   "active": [
+    "Work"
+   ]
+  },
+  {
+   "label": "Skills",
+   "href": "#skills",
+   "top": 72,
+   "active": [
+    "Skills"
+   ]
+  },
+  {
+   "label": "Experience",
+   "href": "#experience",
+   "top": 72,
+   "active": [
+    "Experience"
+   ]
+  },
+  {
+   "label": "Recognition",
+   "href": "#achievements",
+   "top": 72,
+   "active": [
+    "Recognition"
+   ]
+  },
+  {
+   "label": "Education",
+   "href": "#education",
+   "top": 72,
+   "active": [
+    "Education"
+   ]
+  },
+  {
+   "label": "Contact",
+   "href": "#contact",
+   "top": 72,
+   "active": [
+    "Contact"
+   ]
+  }
+ ],
+ "responsive": [
+  {
+   "w": 375,
+   "scrollW": 375,
+   "clientW": 375,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": [
+    "BUTTON.tab-filter__tab right=429",
+    "BUTTON.tab-filter__tab right=499",
+    "BUTTON.tab-filter__tab right=640",
+    "BUTTON.tab-filter__tab right=727"
+   ]
+  },
+  {
+   "w": 414,
+   "scrollW": 414,
+   "clientW": 414,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": [
+    "BUTTON.tab-filter__tab right=431",
+    "BUTTON.tab-filter__tab right=501",
+    "BUTTON.tab-filter__tab right=642",
+    "BUTTON.tab-filter__tab right=729"
+   ]
+  },
+  {
+   "w": 768,
+   "scrollW": 768,
+   "clientW": 768,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": [
+    "BUTTON.tab-filter__tab right=770"
+   ]
+  },
+  {
+   "w": 1024,
+   "scrollW": 1024,
+   "clientW": 1024,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": []
+  },
+  {
+   "w": 1280,
+   "scrollW": 1280,
+   "clientW": 1280,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": []
+  },
+  {
+   "w": 1440,
+   "scrollW": 1440,
+   "clientW": 1440,
+   "hScroll": false,
+   "clipped": [],
+   "overflowEls": []
+  }
+ ],
+ "hamburger": [
+  {
+   "label": "Open navigation",
+   "exp": "false"
+  }
+ ],
+ "menuOpen": {
+  "count": 1,
+  "labels": [
+   "John Rey Seguma"
+  ]
+ },
+ "menuAllLinks": [
+  {
+   "t": "John Rey Seguma",
+   "href": "#about",
+   "h": 26,
+   "top": 17
+  },
+  {
+   "t": "About",
+   "href": "#about",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Work",
+   "href": "#projects",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Skills",
+   "href": "#skills",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Experience",
+   "href": "#experience",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Recognition",
+   "href": "#achievements",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Education",
+   "href": "#education",
+   "h": 0,
+   "top": 0
+  },
+  {
+   "t": "Contact",
+   "href": "#contact",
+   "h": 0,
+   "top": 0
+  }
+ ],
+ "menuClick": "NONE_VISIBLE",
+ "menuAfterSelect": {
+  "visibleLinks": 1,
+  "achTop": -691,
+  "active": [
+   "Recognition"
+  ]
+ },
+ "consoleErrors": [],
+ "consoleWarnings": [],
+ "exceptions": [],
+ "httpFailures": []
+}
